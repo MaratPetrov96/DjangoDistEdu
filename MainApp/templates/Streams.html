@@ -1,0 +1,36 @@
+{% extends 'Base.html' %}
+{% block body %}
+{% regroup specialities by stream as data %}
+<div class='directions'>
+{% for stream in data %}
+<div class="directions-block">
+        <div class="directions-left">
+            <span class="directions__back" style="background: url('{{stream.grouper.preview.url}}')">
+                <span class="main-courses-slider__corner" style="border-color: #1ac6ff transparent transparent transparent;"></span>
+            </span>
+            <div class="directions-left-inner">
+                <a href='{% url "one_direct" type stream.grouper.url %}' class="directions__title">{{stream.grouper.title}}</a>
+            </div>
+        </div>
+		<div class="directions-right">
+        <div class="directions-info">
+                        </div>
+						<div class="directions-list">
+						{% for spec in stream.list %}
+						{% for p in spec.progs.all %}
+						<div class="directions-item">
+						<a class="directions__link" href='{% url "programm" stream.grouper.url spec.url p.url %}'>
+						{% if stream.grouper.pk in range %}
+						0
+						{% endif %}
+						{{stream.grouper.pk}}.03.{{spec.code}} - {{spec.title}}.  Направленность (профиль) программы - «{{p.title}}»
+						</a>
+						</div>
+						{% endfor %}
+						{% endfor %}
+						</div>
+						</div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'Base.html' %}
+{% regroup all_specialities by stream as data %}
+{% block body %}
+<div class="dir-head">
+    <span class="dir-head__back" style="background: url('{direct.preview.url}')"></span>
+    <div class="dir-head-menu-panel">
+	<div class="wrap">
+                <div class="dir-head-menu">
+				{% for stream in data %}
+                <div class="dir-head-menu-item">
+                    <a href='{% url "one_direct" type stream.grouper.url %}' class="dir-head-menu__link ">{{stream.grouper.title}}</a>
+                </div>
+				{% endfor %}
+                    </div>
+        </div>    </div>
+    <div class="wrap">
+        <div class="dir-head-inner">
+            <div class="dir-info">
+                <span class="dir__qualify">Бакалавр</span>
+            </div>
+            <h1 class="dir__title">{{direct.title}}</h1>
+        </div>
+    </div>
+</div>
+<div class="dirs-list">
+{% for spec in specs %}
+{% for p in spec.progs.all %}
+	    <div class="dirs-item">
+        <a href="{% url 'programm' type spec.url p.url %}" class="dirs__link">
+            <span class="dirs-left">
+			{% if p.preview %}
+                <span class="dirs__photo" style="background: url('{{p.preview.url}}')"></span>
+			{% else %}
+			<span class="dirs__photo" style="background: url('')"></span>
+			{% endif %}
+            </span>
+            <span class="dirs-right">
+                <span class="dirs__name">
+				{% if spec.stream.pk in range %}0{% endif %}{{spec.stream.pk}}.03.{{p.special.code}} - {{spec.title}}. Направленность (профиль) программы - «{{p.title}}»</span>
+                                                            </span>
+        </a>
+        <span class="dirs__corner " style="border-color: #1ac6ff transparent transparent transparent;"></span>
+    </div>
+{% endfor %}
+{% endfor %}
+    </div>
+{% endblock %}

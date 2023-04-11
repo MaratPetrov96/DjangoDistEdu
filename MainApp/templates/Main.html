@@ -1,0 +1,13 @@
+{% extends "Base.html" %}
+{% block body %}
+{% regroup specialities by stream as data %}
+<div id='main-list'>
+{% for stream in data %}
+<div style='display:inline-block;'>
+<a href='{% url "one_direct" "Bach" stream.grouper.url %}' style="background: url('{{stream.grouper.preview.url}}')" class='main-link'>
+<span class='main-link-title'>{{stream.grouper.title}}</span>
+</a>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

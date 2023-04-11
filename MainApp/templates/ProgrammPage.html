@@ -1,0 +1,25 @@
+{% extends 'Base.html' %}
+{% block body %}
+<h1>О программе «{{programm.title}}»</h1>
+<div class="formDiv" id="StudyAppForm">
+  <form class="form" action="{% url 'start_study' programm.pk %}" method="POST">
+  {% csrf_token %}
+  <p class="title">Заполните заявку на обучение</p>
+  <p class="info">В течение рабочего дня с Вами свяжется консультант и ответит на все организационные вопросы</p>
+    <div class="container">
+      <input type="text" placeholder="Ваше имя" name="uname" required>
+      <input type="text" placeholder="Страна" name="country" required>
+	  <input type="text" placeholder="Город" name="city" required>
+       <input type="email" placeholder='Ваш email' name='email'>
+	   <input type="text" placeholder='Ваш телефон' name='phone' maxlength='19'>
+	   <input type="submit" id='qbutton' value='Отправить заявку'>
+    </div>
+  </form>
+</div>
+<div id='descr'>
+{% autoescape off %}
+{{ programm.description | linebreaks }}
+{% endautoescape %}
+</div>
+<div class='start-study' onclick="document.getElementsByClassName('formDiv')[1].style.display='block'">Подать заявку</div>
+{% endblock %}

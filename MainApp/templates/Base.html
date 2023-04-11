@@ -1,0 +1,453 @@
+<html>
+<head>
+<title>
+{{title}}
+</title>
+<style type='text/css'>
+*{
+margin:0;
+}
+a{
+text-decoration:none;
+}
+li{
+list-style:none;
+}
+.content {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.directions {
+    display: block;
+}
+.directions-block{
+display: flex;
+align-items: stretch;
+margin: 30px 0 0;
+box-shadow: 0 8px 51px rgba(64,84,102,.2);
+}
+.directions-list{
+display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+	flex-direction: column;
+	flex-wrap: wrap;
+    height: 160px;
+    -webkit-box-pack: start;
+	justify-content: flex-start;
+    margin: 0 -30px 0 0;
+}
+.directions-item{
+    width: 50%;
+    padding: 0 10px 10px 0;
+	    display: block;
+    width: 100%;
+    padding: 0 0 10px 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 0;
+	display: block;
+    box-sizing: border-box;
+    line-height: 0;
+}
+.directions-left{
+width:350px;
+display:block;
+position:relative;
+}
+.directions-right{
+padding: 30px 30px 20px 31px;
+}
+.directions__link{
+max-width: 320px;
+    display: inline-block;
+    vertical-align: top;
+    font: normal 300 14px/20px Roboto,sans-serif;
+    padding-left: 30px;
+    position: relative;
+    transition: text-decoration .15s ease,-webkit-text-decoration .15s ease;
+	color: #005baa;
+}
+.directions__back{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: 50% 10%!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+.directions__back:before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 100%;
+    height: 100%;
+	background:linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%);
+	background-size:cover;
+}
+.directions__title{
+color: #fff;
+font: normal 700 28px/30px 'Officina Serif',sans-serif;
+}
+.directions-left-inner{
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 3;
+	padding: 53px 30px 30px;
+}
+#content{
+max-width: 1198px;
+margin:0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#main-nav{
+margin:0;
+background-color:#005aab;
+height:60px;
+}
+#nav-links{
+margin:0 auto;
+padding: 0 24px;
+max-width: 1246px;
+height:100%;
+}
+nav a{
+padding: 15px 0 18px;
+color:white;
+font: normal 500 16px/25px Roboto,sans-serif;
+text-transform: uppercase;
+display:inline-block;
+}
+nav li{
+margin-left:20px;
+}
+#directs-list{
+display: none;
+    padding: 28px 32px 34px;
+    width: 294px;
+    background: #fff;
+    box-shadow: 0 8px 29px rgba(64,84,102,.11);
+    z-index: 20;
+	position:absolute;
+}
+#directs:hover #directs-list {display: block;}
+#directs-list a{
+color: #005baa;
+font: normal 700 16px/26px Roboto,sans-serif;
+}
+.top-link{
+display:inline;
+}
+.dirs-left{
+width: 325px;
+    display: block;
+    min-height: 330px;
+    box-sizing: border-box;
+    position: relative;
+}
+.dirs__photo{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover!important;
+    background-position: 50% 50%!important;
+}
+.dirs-right{
+    width: calc(100% - 325px);
+    padding: 35px 33px 92px 33px;
+	display: block;
+    min-height: 330px;
+    box-sizing: border-box;
+}
+.dirs__link{
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+}
+.dirs__name{
+    font: normal 700 30px/34px 'Officina Serif',sans-serif;
+    margin: 0 0 14px;
+	    display: block;
+    color: #000;
+    transition: color .15s ease;
+}
+.dirs-item{
+    margin: 30px 0 0;
+    border-radius: 0 0 93px 0;
+	box-shadow: 0 8px 51px rgba(64,84,102,.2);
+}
+#descr p{
+font: normal 300 16px/24px Roboto,sans-serif;
+margin: 10px 0 10px;
+}
+.main-link{
+text-decoration: none;
+display:block;
+width:350px;
+height:210px;
+position:relative;
+background-size: cover!important;
+    background-position: 50% 50%!important;
+	overflow:hidden;
+	margin-left:25px;
+	margin-bottom:20px;
+}
+.main-link:before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%);
+    background-size: cover;
+}
+.main-link-title{
+color:white;
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 3;
+    padding: 53px 30px 30px;
+    font: normal 700 28px/30px 'Officina Serif',sans-serif;
+}
+#univer{
+font-size: 1.4em;
+font-weight: bold;
+}
+.formDiv{
+display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+.form{
+background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: auto;
+  max-width: 35%;
+  padding: 69px 69px 77px;
+}
+.form input{
+  width: 440px;
+  height:50px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  position:relative;
+}
+.form textarea{
+width:440px;
+height:140px;
+resize:none;
+}
+.button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form button:hover {
+  opacity: 0.8;
+}
+.form .container{
+margin: 37px 0 0;
+}
+.info{
+    font: normal 700 20px/28px Roboto,sans-serif;
+    text-align: center;
+    margin: 20px 0 0;
+}
+.title{
+    font: normal 400 60px/60px 'Officina Serif',sans-serif;
+    text-align: center;
+	color: #005baa;
+}
+.instr{
+   font: normal 300 16px/28px Roboto,sans-serif;
+   width: calc(100% - 119px);
+    margin: 0 0 0 28px;
+    padding: 6px 20px 0 0;
+}
+.header{
+    font: normal 700 24px/34px Roboto,sans-serif;
+}
+.start-study{
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background: #a8cf45;
+    border-radius: 20px;
+    box-sizing: border-box;
+    border: 0;
+    font: normal 700 16px/33px Roboto,sans-serif;
+    text-decoration: none;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function commFunc() {
+              // создаем AJAX-вызов
+              $.ajax({
+                  data: $(this).serialize(), // получаем данные формы
+                  type: $(this).attr('method'), // GET или POST
+                  url: $(this).attr('action'),
+                  // если успешно, то
+                  success: function (response) {
+				  document.getElementById('qform').remove();
+                  },
+              });
+              return false;
+          }
+	function replyFunc(){
+              // создаем AJAX-вызов
+              $.ajax({
+                  data: $(this).serialize(), // получаем данные формы
+                  type: $(this).attr('method'), // GET или POST
+                  url: $(this).attr('action'),
+                  // если успешно, то
+                  success: function (response) {
+				  document.getElementById('length').innerHTML = Number(document.getElementById('length').innerHTML) + 1; //изменение кол-ва комментариев
+				  var par_id = response[0].fields.main_parent
+				  var parent = document.getElementById(par_id); //основной комментарий
+				  document.getElementById('comment'+par_id).innerHTML = Number(document.getElementById('comment'+par_id).innerHTML) + 1; //изменение кол-ва ответов
+				  date = new Date(response[0].fields.date);
+				  var comm_day = date.toLocaleDateString();
+				  var comm_hour = date.getHours();
+				  var comm_minute = date.getMinutes();
+				  if (comm_minute<10){
+				  comm_minute = "0" + comm_minute;
+				  }
+				  //дата и время создания комментария
+				  var comm_main = document.createElement("div");
+				  if (response.length == 2){ //если комментарий является ответом на ответ
+				  var repl = document.createElement('div');
+				  repl.setAttribute('class','parent');
+				  repl.innerHTML += '<span class="username">'+response[1].fields.username+'</span><p>'+response[1].fields.content.replace('\r\n','</p><p>')+'</p>';
+				  comm_main.appendChild(repl);
+				  }
+				  comm_main.setAttribute('class','comment_reply');
+				  comm_main.setAttribute('align','left');
+				  comm_main.setAttribute('id',response[0].pk);
+				  var comm_date = document.createElement("div");
+				  comm_date.innerHTML += "<span class='username'>"+response[0].fields.username+'</span>';
+				  comm_date.innerHTML += "<span class='comm-date'>"+`${comm_hour}:${comm_minute} ${comm_day}`+'</span>';
+				  var comm_content = document.createElement("div");
+				  comm_content.setAttribute('class','comm-content');
+				  var content = '<p>'+response[0].fields.content.replace('\r\n','</p><p>')+'</p>';
+				  comm_content.innerHTML += content;
+				  comm_main.appendChild(comm_date);
+				  comm_main.appendChild(comm_content);
+				  comm_main.innerHTML += '<div class="comm-bottom"><span onclick="replyForm(this)" name="reply">Ответить</span></div>';
+				  parent.appendChild(comm_main);
+				  document.getElementById('reply').remove();
+                  },
+              });
+              return false;
+          }
+</script>
+</head>
+<body>
+<nav id='main-nav'>
+<div id='nav-links'>
+<ul>
+<li class='top-link'>
+<a href='/'>Главная страница</a>
+</li>
+<li class='top-link'>
+<a href='{% url "instruction" %}'>Как учиться</a>
+</li>
+<li id='directs' class='top-link'>
+<a href='{% url "directs" "bach" %}'>Направления</a>
+<ul id='directs-list'>
+<li><a href='{% url "directs" "bach" %}'>Направления бакалавриата</a></li>
+<li><a href='{% url "directs" "mag" %}'>Направления магистратуры</a></li>
+</ul>
+</li>
+<li class='top-link'>
+<a href='{% url "login" %}'>Вход</a>
+</li>
+</ul>
+</div>
+</nav>
+<div style='height:85px;margin-top:25px;' align='center'>
+<span id='univer'>ФДО Университета «Джанго»</span>
+<p onclick="document.getElementsByClassName('formDiv')[0].style.display='block'" style="width:auto;">Задать вопрос</p>
+</div>
+<section id='content'>
+<div id='question' class="formDiv">
+  <form class="form" action="{% url 'question' %}" method="POST">
+  {% csrf_token %}
+  <p class="title">Задать вопрос</p>
+  <p class="info">В течение рабочего дня с Вами свяжется менеджер и ответит на все вопросы:</p>
+    <div class="container">
+      <input type="text" placeholder="Ваше имя" name="uname" required>
+      <input type="text" placeholder="Город" name="city" required>
+       <input type="email" placeholder='Ваш email' name='email'>
+	   <textarea name='context' placeholder='Ваш вопрос'></textarea>
+	   <input type="submit" id='qbutton' value='Отправить вопрос'>
+    </div>
+  </form>
+</div>
+{% block body %}
+{% endblock %}
+</section>
+</body>
+<script>
+// Get the modal
+var qform = document.getElementById('question');
+var stform = document.getElementById('StudyAppForm');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == qform) {
+        qform.style.display = "none";
+    }
+	if (event.target == stform) {
+        stform.style.display = "none";
+    }
+}
+</script>
+</html>
